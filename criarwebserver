@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# Atualizar o sistema
+apt update
+apt upgrade -y
+
+# Instalar o Apache
+apt install apache2 -y
+
+# Iniciar o serviço Apache
+systemctl start apache2
+
+# Habilitar o Apache para iniciar na inicialização
+systemctl enable apache2
+
+# Abrir portas no firewall, se necessário
+# Por exemplo, abrir a porta 80 para tráfego HTTP
+# ufw allow 80/tcp
+# ufw enable
+
+# Configurar a página inicial do site
+echo "<html><body><h1>Meu Site</h1></body></html>" > /var/www/html/index.html
+
+# Informações
+echo "Servidor web Apache provisionado com sucesso."
